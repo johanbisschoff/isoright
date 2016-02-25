@@ -6,6 +6,5 @@ import {Page} from 'ionic/ionic';
 })
 export class Page1 {
   constructor() {
-
   }
 }
