@@ -15,5 +15,16 @@
     "typescript": "1.7.5"
   },
   "name": "isoright",
-  "description": "IsoRight: An Ionic project"
+  "description": "IsoRight: An Ionic project",
+  "cordovaPlugins": [
+    "cordova-plugin-device",
+    "cordova-plugin-console",
+    "cordova-plugin-whitelist",
+    "cordova-plugin-splashscreen",
+    "cordova-plugin-statusbar",
+    "ionic-plugin-keyboard"
+  ],
+  "cordovaPlatforms": [
+    "ios"
+  ]
 }

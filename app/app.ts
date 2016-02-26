@@ -28,6 +28,7 @@ export class MyApp {
       //
       // For example, we might change the StatusBar color. This one below is
       // good for dark backgrounds and light text:
+      // cordova.plugins.Keyboard.disableScroll(true)
       // StatusBar.setStyle(StatusBar.LIGHT_CONTENT)
     });
   }
