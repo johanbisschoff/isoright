@@ -1,0 +1,12 @@
+{
+  "undef": true,
+  "node": true,
+  "globals": {
+    "_" : false,
+    "define": false,
+    "window": true,
+    "document": true,
+    "sessionStorage": false,
+    "XMLHttpRequest": false
+  }
+}
