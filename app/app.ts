@@ -1,8 +1,9 @@
-import {App, Platform} from 'ionic-framework/ionic';
-import {TabsPage} from './pages/tabs/tabs';
+import {App, Platform} from 'ionic-framework/ionic'
+import {TabsPage} from './pages/tabs/tabs'
+import {LoginPage} from './pages/login/login'
 
 // https://angular.io/docs/ts/latest/api/core/Type-interface.html
-import {Type} from 'angular2/core';
+import {Type} from 'angular2/core'
 
 
 @App({
@@ -10,7 +11,7 @@ import {Type} from 'angular2/core';
   config: {} // http://ionicframework.com/docs/v2/api/config/Config/
 })
 export class MyApp {
-  rootPage: Type = TabsPage;
+  rootPage: Type = LoginPage
 
   constructor(platform: Platform) {
     platform.ready().then(() => {
