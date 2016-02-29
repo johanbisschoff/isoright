@@ -22,5 +22,5 @@ Run 'yo isoright' to print usage
 
 Unit testing
 ```sh
-
+npm test
 ```
