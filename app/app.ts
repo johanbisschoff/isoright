@@ -1,6 +1,7 @@
 import {App, Platform} from 'ionic-framework/ionic'
-import {TabsPage} from './pages/tabs/tabs'
 import {LoginPage} from './pages/login/login'
+import {AuthenticationService} from './services/authentication.service'
+import {DashboardPage} from './pages/dashboard/dashboard'
 
 // https://angular.io/docs/ts/latest/api/core/Type-interface.html
 import {Type} from 'angular2/core'
@@ -15,6 +16,11 @@ export class MyApp {
 
   constructor(platform: Platform) {
     platform.ready().then(() => {
+
+      let authenticationService =  new AuthenticationService()
+      authenticationService.getToken().then(token => {
+        this.rootPage = DashboardPage
+      })
       // The platform is now ready. Note: if this callback fails to fire, follow
       // the Troubleshooting guide for a number of possible solutions:
       //

@@ -1,16 +1,23 @@
 import {Page, NavController, NavParams, Alert} from 'ionic-framework/ionic'
-import {TabsPage} from '../tabs/tabs'
+// import {TabsPage} from '../tabs/tabs'
+import {DashboardPage} from '../dashboard/dashboard'
 import {LoginService} from '../../services/login.service'
+import {AuthenticationService} from '../../services/authentication.service'
 
 @Page({
-  providers: [LoginService],
+  providers: [LoginService,AuthenticationService],
   templateUrl: 'build/pages/login/login.html'
 })
 export class LoginPage {
   public username: string
   public password: string
-  constructor(private _nav: NavController, private _loginService: LoginService) {
-
+  constructor(private _nav: NavController, private _loginService: LoginService,
+    private _authenticationService: AuthenticationService) {
+    _authenticationService.getToken().then(token => {
+      if (token != null){
+        this.navNext()
+      }
+    })
   }
 
   public presentAlert() {
@@ -22,11 +29,16 @@ export class LoginPage {
     this._nav.present(alert);
   }
 
+  private navNext(){
+    // this._nav.push(DashboardPage)
+    this._nav.setRoot(DashboardPage)
+  }
+
   public login() {
     console.log('logging in')
     this._loginService.login(this.username, this.password).then(authPassed => {
       if (authPassed) {
-        this._nav.push(TabsPage)
+        this.navNext()
       } else {
         this.presentAlert()
       }
