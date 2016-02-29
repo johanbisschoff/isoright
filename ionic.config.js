@@ -6,6 +6,13 @@ module.exports = {
       src: ['app/**/*.html'],
       dest: "www/build"
     },
+    test : {
+     app: 'app/**/*.ts',
+     stub: 'test/**/*.ts',
+     typings: 'typings/main.d.ts',
+     config: 'test/karma.config.js',
+     dest: 'www/build/test'
+   },
     sass: {
       src: ['app/theme/app.+(ios|md).scss'],
       dest: 'www/build/css',

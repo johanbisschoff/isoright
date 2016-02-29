@@ -13,7 +13,7 @@ export class LoginPage {
 
   }
 
-  presentAlert() {
+  public presentAlert() {
     let alert = Alert.create({
       title: 'Authentication Failed',
       subTitle: 'Username or Password is invalid',
@@ -22,7 +22,8 @@ export class LoginPage {
     this._nav.present(alert);
   }
 
-  bypassLogin() {
+  public login() {
+    console.log('logging in')
     this._loginService.login(this.username, this.password).then(authPassed => {
       if (authPassed) {
         this._nav.push(TabsPage)

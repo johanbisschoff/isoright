@@ -15,7 +15,12 @@ export class AuthenticationService {
       this._local.set(this.TOKEN_KEY, token)
     }
 
+    /// Returns Promise
     getToken() {
       return this._local.get(this.TOKEN_KEY)
+    }
+
+    clearToken(){
+      this._local.remove(this.TOKEN_KEY);
     }
 }
