@@ -2,15 +2,14 @@
   <button menuToggle>
     <ion-icon name="menu"></ion-icon>
   </button>
-  <ion-title>Dashboard</ion-title>
+  <ion-title>{{certification.name}}</ion-title>
 </ion-navbar>
 
 
 <ion-content padding class="dashboard">
   <ion-list>
-    <ion-item *ngFor="#item of certifications" (click)="itemSelected(item)">
-      <h1>ISO</h1>
-      <h2>{{item.name}}</h2>
+    <ion-item *ngFor="#item of certificationElements" (click)="itemSelected(item)">
+      {{item.name}}
     </ion-item>
   </ion-list>
 </ion-content>

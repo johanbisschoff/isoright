@@ -1,3 +1,4 @@
 export interface DashItem {
-  name: string
+  standard: string
+  year: string
 }

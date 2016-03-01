@@ -1,3 +1,5 @@
+import {beforeEachProviders,injectAsync,inject,it} from 'angular2/testing';
+
 import {StandardsService} from './standards.service'
 import {DashItem} from '../models/dash-item'
 
@@ -10,19 +12,20 @@ export function main(): void {
 
     describe('getIsoDashList()',() => {
 
-      beforeEach(() => {
-        standardsService = new StandardsService()
-      })
 
-      it('standardsService should not be null', () => {
+      beforeEachProviders(()=>[StandardsService])
+
+
+      it('standardsService should not be null', inject([StandardsService], (standardsService: StandardsService) => {
         expect(standardsService).not.toBeNull()
-      })
+      }))
 
-      it('getIsoDashList should call getIsoDashList', () => {
-        spyOn(standardsService,'getIsoDashList')
-        standardsService.getIsoDashList()
-        expect(standardsService.getIsoDashList).toHaveBeenCalled()
-      })
+      it('standardsService getCertifications to return a non empty array',inject([StandardsService], (standardsService: StandardsService) => {
+        standardsService.getCertifications().then(items => {
+          expect(items.length).toBeGreaterThan(0)
+        })
+      }))
+
     })
 
 
