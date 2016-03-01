@@ -4,6 +4,7 @@ import {CertificationElement, Certification} from '../../models/certification'
 import {DocumentType} from '../../models/document-type'
 import {OnInit} from 'angular2/core'
 
+import {DocumentViewerPage} from '../document-viewer/document-viewer'
 
 @Page({
   providers: [StandardsService],
@@ -25,8 +26,11 @@ export class DocumentTypePage implements OnInit {
   }
 
   itemSelected(item: DocumentType) {
-    console.log(`selected ${item.name}`)
-
+    this._nav.push(DocumentViewerPage, {
+      certificationElement: this.certificationElement,
+      certification: this.certification,
+      documentType: item
+    })
   }
 
   getDocumentTypes() {
