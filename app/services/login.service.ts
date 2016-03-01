@@ -13,7 +13,7 @@ export class LoginService {
   login(username: string, password: string) {
     return new Promise<boolean>(resolve => {
       setTimeout(() => {
-        if (username === "admin" && password == "admin") {
+        if (username.toLowerCase() === "admin" && password == "admin") {
           resolve(true)
           this._authenticationService.setToken('1324-1324-1344')
         } else {
