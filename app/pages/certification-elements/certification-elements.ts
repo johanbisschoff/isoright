@@ -1,6 +1,7 @@
 import {Page, NavController, NavParams} from 'ionic-framework/ionic'
 import {StandardsService} from '../../services/standards.service'
 import {CertificationElement, Certification} from '../../models/certification'
+import {DocumentTypePage} from '../document-types/document-types'
 import {OnInit} from 'angular2/core'
 
 @Page({
@@ -20,8 +21,10 @@ export class CertificationElementsPage implements OnInit {
   }
 
   itemSelected(item: CertificationElement){
-    console.log(`selected ${item.name}`)
-    // this._nav.push()
+    this._nav.push(DocumentTypePage,{
+      certification: this.certification,
+      certificationElement: item
+    })
   }
 
   getCertificationElements(){

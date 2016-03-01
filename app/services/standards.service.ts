@@ -1,7 +1,8 @@
 import {Injectable} from 'angular2/core'
-import {DashItem} from '../models/dash-item'
+import {DocumentType} from '../models/document-type'
 import {Certification,CertificationElement} from '../models/certification'
 import {certificationElements} from '../data/certification-elements'
+import {documentTypes} from '../data/document-types'
 
 @Injectable()
 export class StandardsService {
@@ -15,7 +16,7 @@ export class StandardsService {
   ]
 
   constructor() {
-
+    
   }
 
   getCertificationElements() {
@@ -30,11 +31,10 @@ export class StandardsService {
     })
   }
 
-  // getIsoDashList(){
-  //   return new Promise<DashItem[]>(resolve => {
-  //     setTimeout(()=>{
-  //       resolve(this._dashItems)
-  //     }, 500)
-  //   })
-  // }
+  getDocumentTypes(){
+    return new Promise<DocumentType[]>(resolve => {
+      resolve(documentTypes)
+    })
+  }
+
 }
