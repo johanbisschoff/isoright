@@ -49,6 +49,7 @@ export function main(): void {
         loginService.login('user','pass').then(authPassed => {
           authenticationService.getToken().then(token => {
             expect(token).toBeNull()
+            done()
           })
         })
       })
