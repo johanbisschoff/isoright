@@ -1,13 +1,18 @@
 <ion-navbar *navbar>
-  <button menuToggle>
-    <ion-icon name="menu"></ion-icon>
+
+  <ion-title>Document Types</ion-title>
+
+  <button (click)="openHome()" clear>
+    <ion-icon name="home"></ion-icon>
   </button>
-  <ion-title>{{certificationElement.name}}</ion-title>
 </ion-navbar>
 
+<ion-content class="document-types">
 
-<ion-content padding class="document-types">
   <ion-list>
+    <ion-item-divider light>
+      {{certification.name}} > {{certificationElement.name}}
+    </ion-item-divider>
     <ion-item *ngFor="#item of documentTypes" (click)="itemSelected(item)">
       {{item.name}}
     </ion-item>

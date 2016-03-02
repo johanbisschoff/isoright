@@ -3,6 +3,7 @@ import {StandardsService} from '../../services/standards.service'
 import {CertificationElement, Certification} from '../../models/certification'
 import {DocumentType} from '../../models/document-type'
 import {OnInit} from 'angular2/core'
+import {DashboardPage} from '../dashboard/dashboard'
 
 import {DocumentViewerPage} from '../document-viewer/document-viewer'
 
@@ -31,6 +32,10 @@ export class DocumentTypePage implements OnInit {
       certification: this.certification,
       documentType: item
     })
+  }
+
+  openHome() {
+    this._nav.setRoot(DashboardPage)
   }
 
   getDocumentTypes() {
