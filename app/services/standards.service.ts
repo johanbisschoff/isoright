@@ -8,7 +8,7 @@ import {documentTypes} from '../data/document-types'
 export class StandardsService {
 
   private _certifications: Certification[] = [
-    {"id":1,"name":"No Certification"},
+    // {"id":1,"name":"No Certification"},
     {"id":2,"name":"ISO9001:2008"},
     {"id":3,"name":"TS16949:2009"},
     {"id":4,"name":"ISO 14001:2004 "},
@@ -16,7 +16,7 @@ export class StandardsService {
   ]
 
   constructor() {
-    
+
   }
 
   getCertificationElements() {

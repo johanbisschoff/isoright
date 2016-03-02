@@ -1,13 +1,15 @@
-<ion-menu [content]="mycontent">
+<ion-menu id="main-menu" [content]="mycontent">
   <ion-content>
+    <ion-toolbar class="toolbar-dark">
+      <ion-title>IsoRight</ion-title>
+    </ion-toolbar>
     <ion-list>
       <ion-item>
-        Test
-      </ion-item>
-      <ion-item>
-        Test
+        Settings
       </ion-item>
     </ion-list>
+
+        <button danger outline full (click)="logout()">Logout</button>
   </ion-content>
 </ion-menu>
-<ion-nav #mycontent [root]="rootPage"></ion-nav>
+<ion-nav #mycontent id="nav" [root]="rootPage"></ion-nav>

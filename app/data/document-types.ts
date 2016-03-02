@@ -1,7 +1,7 @@
 import {DocumentType} from '../models/document-type'
 
 export var documentTypes: DocumentType[] = [
-  { "id": 0, "name": "Not Specified" },
+  // { "id": 0, "name": "Not Specified" },
   { "id": 1, "name": "Policy" },
   { "id": 2, "name": "Procedure" },
   { "id": 3, "name": "Form" },

@@ -1,4 +1,4 @@
-import {App, Platform} from 'ionic-framework/ionic'
+import {App, Platform,IonicApp, NavController} from 'ionic-framework/ionic'
 import {LoginPage} from './pages/login/login'
 import {AuthenticationService} from './services/authentication.service'
 import {DashboardPage} from './pages/dashboard/dashboard'
@@ -6,16 +6,17 @@ import {DashboardPage} from './pages/dashboard/dashboard'
 // https://angular.io/docs/ts/latest/api/core/Type-interface.html
 import {Type} from 'angular2/core'
 
+import {LoginService} from './services/login.service'
+
 
 @App({
-  // template: '<ion-nav [root]="rootPage"></ion-nav>',
   templateUrl: 'build/app.html',
   config: {} // http://ionicframework.com/docs/v2/api/config/Config/
 })
 export class MyApp {
   rootPage: Type = LoginPage
 
-  constructor(platform: Platform) {
+  constructor(platform: Platform, public app: IonicApp ) {
     platform.ready().then(() => {
 
       // let authenticationService =  new AuthenticationService()
@@ -40,5 +41,12 @@ export class MyApp {
       // StatusBar.setStyle(StatusBar.LIGHT_CONTENT)
       // }
     });
+  }
+
+  logout(){
+    new LoginService().logout()
+    this.app.getComponent('main-menu').close()
+    let nav = this.app.getComponent('nav')
+    nav.setRoot(LoginPage);
   }
 }

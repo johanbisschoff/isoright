@@ -5,12 +5,13 @@
   <ion-title>Dashboard</ion-title>
 </ion-navbar>
 
-
 <ion-content padding class="dashboard">
-  <ion-list>
-    <ion-item *ngFor="#item of certifications" (click)="itemSelected(item)">
+  <ion-card *ngFor="#item of certifications" (click)="itemSelected(item)">
+    <ion-card-header>
       <h1>ISO</h1>
+    </ion-card-header>
+    <ion-card-content>
       <h2>{{item.name}}</h2>
-    </ion-item>
-  </ion-list>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
