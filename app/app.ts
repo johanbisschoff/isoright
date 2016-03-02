@@ -8,7 +8,8 @@ import {Type} from 'angular2/core'
 
 
 @App({
-  template: '<ion-nav [root]="rootPage"></ion-nav>',
+  // template: '<ion-nav [root]="rootPage"></ion-nav>',
+  templateUrl: 'build/app.html',
   config: {} // http://ionicframework.com/docs/v2/api/config/Config/
 })
 export class MyApp {
@@ -35,7 +36,9 @@ export class MyApp {
       // For example, we might change the StatusBar color. This one below is
       // good for dark backgrounds and light text:
       // cordova.plugins.Keyboard.disableScroll(true)
+      // if (platform.window.StatusBar){
       // StatusBar.setStyle(StatusBar.LIGHT_CONTENT)
+      // }
     });
   }
 }
