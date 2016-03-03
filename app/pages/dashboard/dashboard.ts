@@ -15,15 +15,10 @@ export class DashboardPage implements OnInit {
   constructor(
     private _nav: NavController,
     private _standardsService: StandardsService
-    // private _menu: MenuController
   ) {
-
-    // this._menu.enable(false,'main-menu')
-    // this._menu.enable(true,'toc-menu')
   }
 
   itemSelected(item: Certification){
-    console.log(`selected ${item.name}`)
     this._nav.push(CertificationElementsPage, {
       item: item
     })
