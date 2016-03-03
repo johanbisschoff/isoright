@@ -4,6 +4,8 @@ import {Certification,CertificationElement} from '../models/certification'
 import {certificationElements} from '../data/certification-elements'
 import {documentTypes} from '../data/document-types'
 
+import {Document} from '../models/document'
+
 @Injectable()
 export class StandardsService {
 
@@ -15,8 +17,20 @@ export class StandardsService {
     {"id":6,"name":"OHSAS BS 18001: 2007 "}
   ]
 
+  private _documents: Document[] = [
+    {"id":1, "name": "First Document"}
+  ]
+
   constructor() {
 
+  }
+
+  getDocuments(certification: Certification,
+    certificationElement: CertificationElement, documentType: DocumentType) {
+
+    return new Promise<Document[]>(resolve => {
+      resolve(this._documents)
+    })
   }
 
   getCertificationElements() {

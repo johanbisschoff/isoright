@@ -40,6 +40,7 @@ export class MyApp {
       // if (platform.window.StatusBar){
       // StatusBar.setStyle(StatusBar.LIGHT_CONTENT)
       // }
+
     });
   }
 

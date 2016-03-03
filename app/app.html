@@ -1,17 +1,35 @@
-<ion-menu id="main-menu" [content]="mycontent" >
+<ion-menu id="mainMenu" [content]="mycontent">
   <ion-content>
     <ion-toolbar primary>
       <ion-title>
-          <img src="img/login_logo.png">
+        <img src="img/login_logo.png">
       </ion-title>
     </ion-toolbar>
-    <ion-list>
+
+    <ion-list >
       <ion-item>
         Settings
       </ion-item>
     </ion-list>
-
-        <button danger outline full (click)="logout()">Logout</button>
+    <button danger outline full (click)="logout()">Logout</button>
   </ion-content>
 </ion-menu>
+
+<ion-menu id="tocMenu" [content]="mycontent">
+  <ion-content>
+    <ion-toolbar primary>
+      <ion-title>
+        TOC
+      </ion-title>
+    </ion-toolbar>
+
+    <ion-list>
+      <ion-item>
+        Wololo
+      </ion-item>
+    </ion-list>
+    <button danger outline full (click)="logout()">Logout</button>
+  </ion-content>
+</ion-menu>
+
 <ion-nav #mycontent id="nav" [root]="rootPage"></ion-nav>
