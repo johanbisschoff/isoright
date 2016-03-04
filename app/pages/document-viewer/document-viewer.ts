@@ -10,8 +10,10 @@ import {SettingsService} from '../../services/settings.service'
 import {UtilsService} from '../../services/utils.service'
 import {Document} from '../../models/document'
 
+import {Http, HTTP_PROVIDERS} from 'angular2/http';
+
 @Page({
-  providers: [UtilsService,SettingsService],
+  providers: [UtilsService,SettingsService,HTTP_PROVIDERS],
   templateUrl: 'build/pages/document-viewer/document-viewer.html'
 })
 
@@ -22,13 +24,16 @@ export class DocumentViewerPage implements OnInit {
   public certification: Certification
   public certificationElement: CertificationElement
 
-  fullUrl : string = ""
+  private _fullUrl : string = ""
+  public documentHtml : string = "<a>doc</a>"
+
   constructor(
     private _nav: NavController,
     private _params: NavParams,
     private _menu: MenuController,
     private _utils: UtilsService,
-    private _settingsService: SettingsService
+    private _settingsService: SettingsService,
+    private _http: Http
   ) {
 
     this.certification = this._params.get('certification')
@@ -37,7 +42,7 @@ export class DocumentViewerPage implements OnInit {
     this.document = this._params.get('document')
 
     this._settingsService.getUrl().then(url => {
-      this.fullUrl = this._utils.pathJoin([
+      this._fullUrl = this._utils.pathJoin([
          url,
          this.document.url
        ])
@@ -50,6 +55,11 @@ export class DocumentViewerPage implements OnInit {
   }
 
   ngOnInit() {
-
+    this._http.get(this._fullUrl)
+        .subscribe(text => {
+          let htmlText = text.text()
+          console.log(htmlText)
+          this.documentHtml = htmlText
+        })
   }
 }

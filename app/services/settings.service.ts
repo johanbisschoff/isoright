@@ -6,13 +6,13 @@ export class SettingsService {
 
     private URL_KEY: string = "URL"
     private _local: Storage
-    
+
     public constructor(){
       this._local = new Storage(LocalStorage)
 
       this.getUrl().then(storedUrl => {
         if (!storedUrl){
-          this.setUrl("https://github.com")
+          this.setUrl("/api/")
         }
       })
     }

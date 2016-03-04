@@ -17,7 +17,7 @@ export class StandardsService {
   ]
 
   private _documents: Document[] = [
-    {"id":1, "name": "First Document" , "url": "lauris/awesome-scala/blob/master/README.md"}
+    {"id":1, "name": "First Document" , "url": "docs/js/latest/api/http/Http-class.html"}
   ]
 
   public constructor() {
