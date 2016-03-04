@@ -10,7 +10,6 @@ import {Document} from '../models/document'
 export class StandardsService {
 
   private _certifications: Certification[] = [
-    // {"id":1,"name":"No Certification"},
     {"id":2,"name":"ISO9001:2008"},
     {"id":3,"name":"TS16949:2009"},
     {"id":4,"name":"ISO 14001:2004 "},
@@ -18,34 +17,34 @@ export class StandardsService {
   ]
 
   private _documents: Document[] = [
-    {"id":1, "name": "First Document"}
+    {"id":1, "name": "First Document" , "url": "lauris/awesome-scala/blob/master/README.md"}
   ]
 
-  constructor() {
-
+  public constructor() {
   }
 
-  getDocuments(certification: Certification,
-    certificationElement: CertificationElement, documentType: DocumentType) {
+  public getDocuments(certification: Certification,
+    certificationElement: CertificationElement,
+    documentType: DocumentType): Promise<Document[]> {
 
     return new Promise<Document[]>(resolve => {
       resolve(this._documents)
     })
   }
 
-  getCertificationElements() {
+  public getCertificationElements(): Promise<CertificationElement[]> {
     return new Promise<CertificationElement[]>(resolve => {
       resolve(certificationElements)
     })
   }
 
-  getCertifications(){
+  public getCertifications(): Promise<Certification[]> {
     return new Promise<Certification[]>(resolve => {
       resolve(this._certifications)
     })
   }
 
-  getDocumentTypes(){
+  public getDocumentTypes(): Promise<DocumentType[]> {
     return new Promise<DocumentType[]>(resolve => {
       resolve(documentTypes)
     })

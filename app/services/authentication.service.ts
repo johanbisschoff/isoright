@@ -11,16 +11,15 @@ export class AuthenticationService {
       this._local = new Storage(LocalStorage)
     }
 
-    setToken(token: string) {
+    public setToken(token: string) {
       this._local.set(this.TOKEN_KEY, token)
     }
 
-    /// Returns Promise
-    getToken() {
+    public getToken(): Promise<string> {
       return this._local.get(this.TOKEN_KEY)
     }
 
-    clearToken(){
+    public clearToken(){
       this._local.remove(this.TOKEN_KEY);
     }
 }

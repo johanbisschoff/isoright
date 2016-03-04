@@ -1,0 +1,18 @@
+<ion-navbar *navbar>
+  <button menuToggle="nav-menu">
+    <ion-icon name="menu"></ion-icon>
+  </button>
+  <ion-title>Settings</ion-title>
+</ion-navbar>
+
+<ion-content padding class="settings">
+
+  <ion-item>
+    <ion-label stacked>URL:</ion-label>
+    <ion-input [(ngModel)]="baseUrl"></ion-input>
+  </ion-item>
+
+  <div padding>
+    <button block (click)="save()">Save</button>
+  </div>
+</ion-content>

@@ -1,13 +1,14 @@
 import {App, Platform,IonicApp, NavController} from 'ionic-framework/ionic'
 import {LoginPage} from './pages/login/login'
+
 import {AuthenticationService} from './services/authentication.service'
+import {LoginService} from './services/login.service'
+
 import {DashboardPage} from './pages/dashboard/dashboard'
+import {SettingsPage} from './pages/settings/settings'
 
 // https://angular.io/docs/ts/latest/api/core/Type-interface.html
 import {Type} from 'angular2/core'
-
-import {LoginService} from './services/login.service'
-
 
 @App({
   templateUrl: 'build/app.html',
@@ -44,9 +45,20 @@ export class MyApp {
     });
   }
 
-  logout(){
-    new LoginService().logout()
+  public goToDashboard() {
+    let nav = this.app.getComponent('nav')
     this.app.getComponent('main-menu').close()
+    nav.setRoot(DashboardPage)
+  }
+
+  public goToSettings(){
+    let nav = this.app.getComponent('nav')
+    this.app.getComponent('main-menu').close()
+    nav.setRoot(SettingsPage)
+  }
+
+  public logout(){
+    new LoginService().logout()
     let nav = this.app.getComponent('nav')
     nav.setRoot(LoginPage);
   }

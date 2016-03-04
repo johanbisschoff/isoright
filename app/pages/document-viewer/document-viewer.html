@@ -3,12 +3,12 @@
   <button (click)="openHome()" clear>
     <ion-icon name="home"></ion-icon>
   </button>
-  <ion-title>Document Viewer</ion-title>
+  <ion-title>{{document.name}}</ion-title>
 </ion-navbar>
 
 <ion-content padding class="document-viewer">
-  {{certification.name}} <br/>
-  {{certificationElement.name}} <br/>
-  {{documentType.name}} <br/>
-  {{document.name}} <br/>
+  {{fullUrl}}
+
+  <div [innerHTML]="fullUrl"></div>
+
 </ion-content>

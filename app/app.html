@@ -1,4 +1,4 @@
-<ion-menu id="mainMenu" [content]="mycontent">
+<ion-menu id="main-menu" [content]="mycontent">
   <ion-content>
     <ion-toolbar primary>
       <ion-title>
@@ -7,25 +7,11 @@
     </ion-toolbar>
 
     <ion-list >
-      <ion-item>
-        Settings
+      <ion-item (click)="goToDashboard()">
+        Documents
       </ion-item>
-    </ion-list>
-    <button danger outline full (click)="logout()">Logout</button>
-  </ion-content>
-</ion-menu>
-
-<ion-menu id="tocMenu" [content]="mycontent">
-  <ion-content>
-    <ion-toolbar primary>
-      <ion-title>
-        TOC
-      </ion-title>
-    </ion-toolbar>
-
-    <ion-list>
-      <ion-item>
-        Wololo
+      <ion-item (click)="goToSettings()">
+        Settings
       </ion-item>
     </ion-list>
     <button danger outline full (click)="logout()">Logout</button>
