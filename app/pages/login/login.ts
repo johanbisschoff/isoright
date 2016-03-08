@@ -1,5 +1,4 @@
 import {Page, NavController, NavParams, Alert} from 'ionic-framework/ionic'
-// import {TabsPage} from '../tabs/tabs'
 import {DashboardPage} from '../dashboard/dashboard'
 import {LoginService} from '../../services/login.service'
 import {AuthenticationService} from '../../services/authentication.service'
@@ -25,17 +24,15 @@ export class LoginPage {
       title: 'Authentication Failed',
       subTitle: 'Username or Password is invalid',
       buttons: ['Ok']
-    });
-    this._nav.present(alert);
+    })
+    this._nav.present(alert)
   }
 
   private navNext(){
-    // this._nav.push(DashboardPage)
     this._nav.setRoot(DashboardPage)
   }
 
   public login() {
-    console.log('logging in')
     this._loginService.login(this.username, this.password).then(authPassed => {
       if (authPassed) {
         this.navNext()

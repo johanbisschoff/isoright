@@ -1,6 +1,6 @@
 <ion-navbar *navbar>
 
-  <ion-title>{{certificationElement.name}}</ion-title>
+  <ion-title>{{documentType.name}}</ion-title>
 
 </ion-navbar>
 
@@ -8,9 +8,9 @@
 
   <ion-list>
     <ion-item-divider light>
-      {{certification.name}} > {{certificationElement.name}}
+      {{certification.name}} > {{certificationElement.name}} > {{documentType.name}}
     </ion-item-divider>
-    <ion-item *ngFor="#item of documentTypes" (click)="itemSelected(item)">
+    <ion-item *ngFor="#item of documents" (click)="itemSelected(item)">
       {{item.name}}
     </ion-item>
   </ion-list>

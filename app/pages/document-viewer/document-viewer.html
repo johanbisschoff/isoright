@@ -1,14 +1,14 @@
+
 <ion-navbar *navbar>
-  <button menuToggle>
-    <ion-icon name="menu"></ion-icon>
+  <button (click)="openHome()" clear>
+    <ion-icon name="home"></ion-icon>
   </button>
-  <ion-title>Document Viewer</ion-title>
+  <ion-title>{{document.name}}</ion-title>
 </ion-navbar>
 
-
 <ion-content padding class="document-viewer">
-  Document Viewer
-  {{certification.name}}
-  {{certificationElement.name}}
-  {{documentType.name}}
+  {{fullUrl}}
+
+  <div [innerHTML]="documentHtml"></div>
+
 </ion-content>

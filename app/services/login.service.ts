@@ -10,7 +10,7 @@ export class LoginService {
     this._authenticationService = new AuthenticationService()
   }
 
-  login(username: string, password: string) {
+  login(username: string, password: string) : Promise<boolean> {
     return new Promise<boolean>(resolve => {
       setTimeout(() => {
         if (username.toLowerCase() === "admin" && password == "admin") {

@@ -1,8 +1,10 @@
-import {Page, NavController, NavParams, Alert} from 'ionic-framework/ionic'
+import {Page, NavController, NavParams, Alert, MenuController} from 'ionic-framework/ionic'
 import {StandardsService} from '../../services/standards.service'
 import {Certification} from '../../models/certification'
 import {OnInit} from 'angular2/core'
 import {CertificationElementsPage} from '../certification-elements/certification-elements'
+
+
 
 @Page({
   providers: [StandardsService],
@@ -12,11 +14,11 @@ export class DashboardPage implements OnInit {
   public certifications: Certification[]
   constructor(
     private _nav: NavController,
-    private _standardsService: StandardsService) {
+    private _standardsService: StandardsService
+  ) {
   }
 
   itemSelected(item: Certification){
-    console.log(`selected ${item.name}`)
     this._nav.push(CertificationElementsPage, {
       item: item
     })

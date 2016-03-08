@@ -1,0 +1,21 @@
+<ion-menu id="main-menu" [content]="mycontent">
+  <ion-content>
+    <ion-toolbar primary>
+      <ion-title>
+        <img src="img/login_logo.png">
+      </ion-title>
+    </ion-toolbar>
+
+    <ion-list >
+      <ion-item (click)="goToDashboard()">
+        Documents
+      </ion-item>
+      <ion-item (click)="goToSettings()">
+        Settings
+      </ion-item>
+    </ion-list>
+    <button danger outline full (click)="logout()">Logout</button>
+  </ion-content>
+</ion-menu>
+
+<ion-nav #mycontent id="nav" [root]="rootPage"></ion-nav>

@@ -3,8 +3,9 @@ import {StandardsService} from '../../services/standards.service'
 import {CertificationElement, Certification} from '../../models/certification'
 import {DocumentType} from '../../models/document-type'
 import {OnInit} from 'angular2/core'
+import {DashboardPage} from '../dashboard/dashboard'
 
-import {DocumentViewerPage} from '../document-viewer/document-viewer'
+import {DocumentsPage} from '../documents/documents'
 
 @Page({
   providers: [StandardsService],
@@ -16,6 +17,8 @@ export class DocumentTypePage implements OnInit {
   public documentTypes: DocumentType[]
   public certification: Certification
   public certificationElement: CertificationElement
+
+  public poop: string = "test"
   constructor(
     private _nav: NavController,
     private _params: NavParams,
@@ -26,11 +29,15 @@ export class DocumentTypePage implements OnInit {
   }
 
   itemSelected(item: DocumentType) {
-    this._nav.push(DocumentViewerPage, {
+    this._nav.push(DocumentsPage, {
       certificationElement: this.certificationElement,
       certification: this.certification,
       documentType: item
     })
+  }
+
+  openHome() {
+    this._nav.setRoot(DashboardPage)
   }
 
   getDocumentTypes() {
