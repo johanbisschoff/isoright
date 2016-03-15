@@ -1,7 +1,10 @@
 module.exports = {
   proxies: [{
-    "path": "/api/",
+    "path": "/documents/",
     "proxyUrl": "https://angular.io/"
+  },{
+    "path": "/api/",
+    "proxyUrl": "http://192.168.4.63/MobileAPI"
   }],
 
   paths: {

@@ -9,10 +9,13 @@ import {Document} from '../../models/document'
 import {DashboardPage} from '../dashboard/dashboard'
 import {DocumentViewerPage} from '../document-viewer/document-viewer'
 
+import {UtilsService} from '../../services/utils.service'
+import {SettingsService} from '../../services/settings.service'
 import {StandardsService} from '../../services/standards.service'
+import {HttpService} from '../../services/http.service'
 
 @Page({
-  providers: [StandardsService],
+  providers: [StandardsService,UtilsService,SettingsService,HttpService],
   templateUrl: 'build/pages/documents/documents.html'
 })
 

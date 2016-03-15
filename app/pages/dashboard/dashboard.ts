@@ -1,13 +1,17 @@
 import {Page, NavController, NavParams, Alert, MenuController} from 'ionic-framework/ionic'
+
+import {UtilsService} from '../../services/utils.service'
+import {SettingsService} from '../../services/settings.service'
 import {StandardsService} from '../../services/standards.service'
+import {HttpService} from '../../services/http.service'
+
 import {Certification} from '../../models/certification'
 import {OnInit} from 'angular2/core'
 import {CertificationElementsPage} from '../certification-elements/certification-elements'
 
 
-
 @Page({
-  providers: [StandardsService],
+  providers: [StandardsService,UtilsService,SettingsService,HttpService],
   templateUrl: 'build/pages/dashboard/dashboard.html'
 })
 export class DashboardPage implements OnInit {

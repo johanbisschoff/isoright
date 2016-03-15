@@ -6,4 +6,5 @@ export interface Certification {
 export interface CertificationElement {
   name: string
   id: number
+  parentId: number
 }

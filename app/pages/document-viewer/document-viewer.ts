@@ -41,12 +41,10 @@ export class DocumentViewerPage implements OnInit {
     this.documentType = this._params.get('documentType')
     this.document = this._params.get('document')
 
-    this._settingsService.getUrl().then(url => {
       this._fullUrl = this._utils.pathJoin([
-         url,
+         '/documents/',
          this.document.url
        ])
-    })
 
   }
 
