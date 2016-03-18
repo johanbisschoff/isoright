@@ -1,10 +1,17 @@
 import {Page, NavController, NavParams, Alert} from 'ionic-framework/ionic'
 import {DashboardPage} from '../dashboard/dashboard'
+
 import {LoginService} from '../../services/login.service'
+import {SettingsService} from '../../services/settings.service'
 import {AuthenticationService} from '../../services/authentication.service'
+import {HttpService} from '../../services/http.service'
+import {UtilsService} from '../../services/utils.service'
 
 @Page({
-  providers: [LoginService,AuthenticationService],
+  providers: [
+    LoginService,AuthenticationService,
+    HttpService,SettingsService,UtilsService
+  ],
   templateUrl: 'build/pages/login/login.html'
 })
 export class LoginPage {

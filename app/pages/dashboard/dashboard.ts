@@ -3,6 +3,7 @@ import {Page, NavController, NavParams, Alert, MenuController} from 'ionic-frame
 import {UtilsService} from '../../services/utils.service'
 import {SettingsService} from '../../services/settings.service'
 import {StandardsService} from '../../services/standards.service'
+import {AuthenticationService} from '../../services/authentication.service'
 import {HttpService} from '../../services/http.service'
 
 import {Certification} from '../../models/certification'
@@ -11,7 +12,7 @@ import {CertificationElementsPage} from '../certification-elements/certification
 
 
 @Page({
-  providers: [StandardsService,UtilsService,SettingsService,HttpService],
+  providers: [StandardsService,UtilsService,SettingsService,HttpService,AuthenticationService],
   templateUrl: 'build/pages/dashboard/dashboard.html'
 })
 export class DashboardPage implements OnInit {

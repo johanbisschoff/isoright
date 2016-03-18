@@ -5,6 +5,9 @@ module.exports = {
   },{
     "path": "/api/",
     "proxyUrl": "http://192.168.4.63/MobileAPI"
+  },{
+    "path": "/isoright/",
+    "proxyUrl": "http://192.168.4.63/IsoRight/" 
   }],
 
   paths: {

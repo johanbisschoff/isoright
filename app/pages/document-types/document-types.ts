@@ -9,10 +9,11 @@ import {DocumentsPage} from '../documents/documents'
 import {UtilsService} from '../../services/utils.service'
 import {SettingsService} from '../../services/settings.service'
 import {StandardsService} from '../../services/standards.service'
+import {AuthenticationService} from '../../services/authentication.service'
 import {HttpService} from '../../services/http.service'
 
 @Page({
-  providers: [StandardsService,UtilsService,SettingsService,HttpService],
+  providers: [StandardsService,UtilsService,SettingsService,HttpService,AuthenticationService],
   templateUrl: 'build/pages/document-types/document-types.html'
 })
 

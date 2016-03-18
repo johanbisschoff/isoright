@@ -7,10 +7,11 @@ import {OnInit} from 'angular2/core'
 import {UtilsService} from '../../services/utils.service'
 import {SettingsService} from '../../services/settings.service'
 import {StandardsService} from '../../services/standards.service'
+import {AuthenticationService} from '../../services/authentication.service'
 import {HttpService} from '../../services/http.service'
 
 @Page({
-  providers: [StandardsService,UtilsService,HttpService,SettingsService],
+  providers: [StandardsService,UtilsService,HttpService,SettingsService,AuthenticationService],
   templateUrl: 'build/pages/certification-elements/certification-elements.html'
 })
 

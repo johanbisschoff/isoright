@@ -14,9 +14,9 @@ import {Http} from "angular2/http"
 @Injectable()
 export class StandardsService {
 
-  private _documents: Document[] = [
-    {"id":1, "name": "First Document" , "url": "docs/js/latest/api/http/Http-class.html"}
-  ]
+  // private _documents: Document[] = [
+  //   {"id":1, "name": "First Document" , "url": "docs/js/latest/api/http/Http-class.html"}
+  // ]
 
   public constructor(
     private _http: Http,
@@ -27,17 +27,20 @@ export class StandardsService {
 
   }
 
-  public getDocuments(certification: Certification,
-    certificationElement: CertificationElement,
-    documentType: DocumentType): Promise<Document[]> {
+  public getDocuments(certificationElementId: number, documentTypeId: number):
+    Promise<Document[]> {
     return new Promise<Document[]>(resolve => {
-      resolve(this._documents)
+      let url = `/api/document/list/${certificationElementId}/${documentTypeId}`
+      this._httpService.getJson(url).then(json => {
+        resolve(json.documents)
+      })
     })
   }
 
   public getCertificationElements(id: number): Promise<CertificationElement[]> {
     return new Promise<CertificationElement[]>(resolve => {
-      this._httpService.getJson(`/api/certification/elements/${id}`).then(json => {
+      this._httpService.getJson(`/api/certification/elements/${id}`)
+      .then(json => {
         resolve(json.certificationElements)
       })
     })

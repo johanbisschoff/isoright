@@ -12,10 +12,14 @@ import {DocumentViewerPage} from '../document-viewer/document-viewer'
 import {UtilsService} from '../../services/utils.service'
 import {SettingsService} from '../../services/settings.service'
 import {StandardsService} from '../../services/standards.service'
+import {AuthenticationService} from '../../services/authentication.service'
 import {HttpService} from '../../services/http.service'
 
 @Page({
-  providers: [StandardsService,UtilsService,SettingsService,HttpService],
+  providers: [
+    StandardsService,UtilsService,SettingsService,
+    HttpService,AuthenticationService
+  ],
   templateUrl: 'build/pages/documents/documents.html'
 })
 
@@ -38,8 +42,8 @@ export class DocumentsPage implements OnInit {
   }
 
   getDocumentList() {
-    this._standardsService.getDocuments(this.certification,
-      this.certificationElement,this.documentType).then(documents => {
+    this._standardsService.getDocuments(this.certificationElement.id,
+      this.documentType.id).then(documents => {
         this.documents = documents
       })
   }
