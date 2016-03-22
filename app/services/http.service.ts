@@ -61,7 +61,7 @@ export class HttpService {
     return new Promise<any>((resolve,reject) => {
       this._authenticationService.getToken().then(token => {
         let headers = new Headers()
-        headers.append('TOKEN',token)
+        headers.append('Authorization',`Token ${token}`)
         let options = {
           headers : headers
         }
