@@ -3,4 +3,6 @@ export interface Document {
   id: number
   url: string
   contentType: string
+  dateApproved: string
+  revisionNumber: string
 }

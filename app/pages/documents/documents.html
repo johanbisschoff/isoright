@@ -14,6 +14,8 @@
     </ion-item-divider>
     <ion-item *ngFor="#item of documents" (click)="itemSelected(item)">
       {{item.name}}
+      <p>v {{item.revisionNumber}}</p>
+      <p>{{item.dateApproved}}</p>
     </ion-item>
   </ion-list>
 </ion-content>
