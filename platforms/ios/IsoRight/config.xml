@@ -49,9 +49,9 @@
     </feature>
     <allow-intent href="itms:*" />
     <allow-intent href="itms-apps:*" />
-    <name>V2 Test</name>
-    <description>An Ionic Framework and Cordova project.</description>
-    <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
+    <name>IsoRight</name>
+    <description>IsoRight mobile app</description>
+    <author email="developer@kaleidocode" href="http://ionicframework.com/">IsoRight Team</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
