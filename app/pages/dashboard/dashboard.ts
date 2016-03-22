@@ -17,6 +17,9 @@ import {CertificationElementsPage} from '../certification-elements/certification
 })
 export class DashboardPage implements OnInit {
   public certifications: Certification[]
+  public hasError: boolean = false
+  public error: string
+
   constructor(
     private _nav: NavController,
     private _standardsService: StandardsService
@@ -32,6 +35,9 @@ export class DashboardPage implements OnInit {
   getDasboardItems(){
     this._standardsService.getCertifications().then(items => {
       this.certifications = items
+    },error => {
+      this.hasError = true 
+      this.error = error
     })
   }
 

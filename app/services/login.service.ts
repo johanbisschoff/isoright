@@ -15,16 +15,17 @@ export class LoginService {
   }
 
   login(username: string, password: string) : Promise<boolean> {
-    return new Promise<boolean>(resolve => {
+    return new Promise<boolean>( (resolve,reject) => {
       let body = {
         username,
         password
       }
-
       this._httpService.postJson('/api/login',JSON.stringify(body)).then(json => {
         console.log(json);
         this._authenticationService.setToken(json.token);
         resolve (true)
+      }, error => {
+        reject(error)
       })
     })
   }

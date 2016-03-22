@@ -20,18 +20,20 @@ export class HttpService {
     ) {
   }
 
-  private handleError(statusCode: number){
+  private handleError(status: any): string {
     let actions = {
       401: () => {
-        console.log("bad token")
-        // this._nav.setRoot(LoginPage)
+        return 'Your request was not authenticated, please log in again'
+      }, 404: () => {
+        return 'Service unavailable'
       }
     }
-    actions[statusCode]()
+    let action = actions[status.status] && actions[status.status]()
+    return action || 'Data unavailable'
   }
 
   public postJson(path: string, body: string) {
-    return new Promise<any>(resolve => {
+    return new Promise<any>((resolve, reject) => {
       this._authenticationService.getToken().then(token => {
         let headers = new Headers()
         headers.append('Content-Type', 'application/json')
@@ -46,6 +48,8 @@ export class HttpService {
             .subscribe(
               data => {
                 resolve(data.json())
+              }, error => {
+                reject(this.handleError(error))
               }
             )
         })
@@ -54,7 +58,7 @@ export class HttpService {
   }
 
   public getJson(path: string) {
-    return new Promise<any>(resolve => {
+    return new Promise<any>((resolve,reject) => {
       this._authenticationService.getToken().then(token => {
         let headers = new Headers()
         headers.append('TOKEN',token)
@@ -71,7 +75,7 @@ export class HttpService {
                 resolve(data.json())
               },
               error => {
-                this.handleError(error.status)
+                reject(this.handleError(error))
               }
             )
         })

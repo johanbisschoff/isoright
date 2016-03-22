@@ -5,6 +5,9 @@
 </ion-navbar>
 
 <ion-content class="document-types">
+  <ion-item-divider light *ngIf="hasError" style="color: #c00;">
+    {{error}}
+  </ion-item-divider>
   <ion-list>
     <ion-item-divider light>
       {{certification.name}} > {{certificationElement.name}} > {{documentType.name}}

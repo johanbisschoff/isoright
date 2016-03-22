@@ -29,6 +29,10 @@
         <button block (click)="login()">Sign In</button>
       </div>
 
+      <ion-item-divider light *ngIf="hasError" style="color: #c00;">
+        {{error}}
+      </ion-item-divider>
+
     </ion-card-content>
   </ion-card>
 

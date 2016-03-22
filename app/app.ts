@@ -57,7 +57,7 @@ export class MyApp {
   }
 
   public logout(){
-    new LoginService().logout()
+    new LoginService(null,null).logout()
     let nav = this.app.getComponent('nav')
     nav.setRoot(LoginPage);
   }

@@ -1,8 +1,6 @@
 import {Injectable} from 'angular2/core'
 import {DocumentType} from '../models/document-type'
 import {Certification,CertificationElement} from '../models/certification'
-import {certificationElements} from '../data/certification-elements'
-import {documentTypes} from '../data/document-types'
 
 import {SettingsService} from './settings.service'
 import {UtilsService} from './utils.service'
@@ -29,35 +27,43 @@ export class StandardsService {
 
   public getDocuments(certificationElementId: number, documentTypeId: number):
     Promise<Document[]> {
-    return new Promise<Document[]>(resolve => {
+    return new Promise<Document[]>((resolve,reject) => {
       let url = `/api/document/list/${certificationElementId}/${documentTypeId}`
       this._httpService.getJson(url).then(json => {
         resolve(json.documents)
+      }, error => {
+        reject(error)
       })
     })
   }
 
   public getCertificationElements(id: number): Promise<CertificationElement[]> {
-    return new Promise<CertificationElement[]>(resolve => {
+    return new Promise<CertificationElement[]>((resolve,reject) => {
       this._httpService.getJson(`/api/certification/elements/${id}`)
       .then(json => {
         resolve(json.certificationElements)
+      }, error => {
+        reject(error)
       })
     })
   }
 
   public getCertifications(): Promise<Certification[]> {
-    return new Promise<Certification[]>(resolve => {
+    return new Promise<Certification[]>((resolve,reject) => {
       this._httpService.getJson('/api/certification/all').then(json => {
         resolve(json.certifications)
+      }, error => {
+        reject(error)
       })
     })
   }
 
   public getDocumentTypes(): Promise<DocumentType[]> {
-    return new Promise<DocumentType[]>(resolve => {
+    return new Promise<DocumentType[]>((resolve,reject) => {
       this._httpService.getJson('/api/document/types').then(json => {
         resolve(json.documentTypes)
+      }, error => {
+        reject(error)
       })
     })
   }

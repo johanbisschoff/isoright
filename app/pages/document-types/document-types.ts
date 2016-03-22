@@ -23,6 +23,9 @@ export class DocumentTypePage implements OnInit {
   public certification: Certification
   public certificationElement: CertificationElement
 
+  public hasError: boolean = false
+  public error: string
+
   constructor(
     private _nav: NavController,
     private _params: NavParams,
@@ -47,6 +50,9 @@ export class DocumentTypePage implements OnInit {
   getDocumentTypes() {
     this._standardsService.getDocumentTypes().then(documentTypes => {
       this.documentTypes = documentTypes
+    },error => {
+      this.hasError = true
+      this.error = error
     })
   }
 

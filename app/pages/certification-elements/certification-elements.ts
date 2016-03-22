@@ -18,6 +18,8 @@ import {HttpService} from '../../services/http.service'
 export class CertificationElementsPage implements OnInit {
   public certificationElements: CertificationElement[]
   public certification: Certification
+  public hasError: boolean = false
+  public error: string
   constructor(
     private _nav: NavController,
     private _params: NavParams,
@@ -37,6 +39,9 @@ export class CertificationElementsPage implements OnInit {
     this._standardsService.getCertificationElements(this.certification.id)
     .then(items => {
       this.certificationElements = items
+    },error => {
+      this.hasError = true
+      this.error = error
     })
   }
 

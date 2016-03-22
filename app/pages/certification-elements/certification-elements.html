@@ -4,6 +4,9 @@
 
 
 <ion-content class="certification-elements">
+  <ion-item-divider light *ngIf="hasError" style="color: #c00;">
+    {{error}}
+  </ion-item-divider>
   <ion-list>
     <!-- <ion-item-divider light>
       {{certification.name}}

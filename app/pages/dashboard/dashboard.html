@@ -9,7 +9,9 @@
 </ion-navbar>
 
 <ion-content padding class="dashboard">
-
+  <ion-item-divider light *ngIf="hasError" style="color: #c00;">
+    {{error}}
+  </ion-item-divider>
   <ion-card *ngFor="#item of certifications" (click)="itemSelected(item)">
     <ion-card-header>
       <h1>ISO</h1>

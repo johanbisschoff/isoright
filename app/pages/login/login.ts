@@ -17,6 +17,11 @@ import {UtilsService} from '../../services/utils.service'
 export class LoginPage {
   public username: string
   public password: string
+
+  public hasError: boolean = false
+  public error: string
+
+
   constructor(private _nav: NavController, private _loginService: LoginService,
     private _authenticationService: AuthenticationService) {
     _authenticationService.getToken().then(token => {
@@ -41,11 +46,16 @@ export class LoginPage {
 
   public login() {
     this._loginService.login(this.username, this.password).then(authPassed => {
+      this.hasError = false
       if (authPassed) {
         this.navNext()
       } else {
         this.presentAlert()
       }
+    }, error => {
+      this.hasError = true
+      this.error = 'Username or password is incorrect'
+      console.log("login page failed")
     })
   }
 }
