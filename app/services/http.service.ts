@@ -33,11 +33,16 @@ export class HttpService {
   public postJson(path: string, body: string) {
     return new Promise<any>(resolve => {
       this._authenticationService.getToken().then(token => {
+        let headers = new Headers()
+        headers.append('Content-Type', 'application/json')
+        let options = {
+          headers : headers
+        }
         this._settingsService.getUrl().then(url => {
           let joined = this._utilsService.pathJoin([
             url, path
           ])
-          this._http.post(joined, body)
+          this._http.post(joined, body, options)
             .subscribe(
               data => {
                 resolve(data.json())
@@ -52,10 +57,10 @@ export class HttpService {
     return new Promise<any>(resolve => {
       this._authenticationService.getToken().then(token => {
         let headers = new Headers()
-        headers.append("TOKEN",token)
+        headers.append('TOKEN',token)
         let options = {
           headers : headers
-        };
+        }
         this._settingsService.getUrl().then(url => {
           let joined = this._utilsService.pathJoin([
             url, path
