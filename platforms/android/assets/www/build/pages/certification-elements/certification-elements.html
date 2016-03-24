@@ -1,0 +1,18 @@
+<ion-navbar *navbar>
+  <ion-title>{{certification.name}}</ion-title>
+</ion-navbar>
+
+
+<ion-content class="certification-elements">
+  <ion-item-divider light *ngIf="hasError" style="color: #c00;">
+    {{error}}
+  </ion-item-divider>
+  <ion-list>
+    <!-- <ion-item-divider light>
+      {{certification.name}}
+    </ion-item-divider> -->
+    <ion-item *ngFor="#item of certificationElements" (click)="itemSelected(item)">
+      {{item.name}}
+    </ion-item>
+  </ion-list>
+</ion-content>

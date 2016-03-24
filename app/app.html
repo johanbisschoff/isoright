@@ -1,14 +1,20 @@
 <ion-menu id="main-menu" [content]="mycontent">
   <ion-content>
-    <ion-toolbar primary>
-      <ion-title>
-        <img src="img/login_logo.png">
-      </ion-title>
-    </ion-toolbar>
+    <div *ngIf="isIos" class="statusbar-buffer">
+    </div>
+      <ion-toolbar primary>
+        <ion-title>
+          <img src="img/login_logo.png">
+        </ion-title>
+      </ion-toolbar>
 
     <ion-list >
+
       <ion-item (click)="goToDashboard()">
         Documents
+      </ion-item>
+      <ion-item (click)="goToTasks()">
+        Tasks
       </ion-item>
       <ion-item (click)="goToSettings()">
         Settings

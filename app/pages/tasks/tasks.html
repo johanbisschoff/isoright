@@ -1,0 +1,22 @@
+<ion-navbar *navbar>
+  <button menuToggle="nav-menu">
+    <ion-icon name="menu"></ion-icon>
+  </button>
+  <ion-title>Tasks</ion-title>
+
+</ion-navbar>
+
+<ion-content>
+  <ion-list>
+    <ion-item-divider light>
+      Task Type
+    </ion-item-divider>
+    <ion-item *ngFor="#item of tasks" (click)="itemSelected(item)">
+      {{item.description}}
+
+      {{item.dueDate}}
+      {{item.complete}}
+      {{item.daysRemaining}}
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -4,6 +4,7 @@ import {LoginPage} from './pages/login/login'
 import {AuthenticationService} from './services/authentication.service'
 import {LoginService} from './services/login.service'
 
+import {TasksPage} from './pages/tasks/tasks'
 import {DashboardPage} from './pages/dashboard/dashboard'
 import {SettingsPage} from './pages/settings/settings'
 
@@ -15,7 +16,7 @@ import {Type} from 'angular2/core'
 })
 export class MyApp {
   rootPage: Type = LoginPage
-
+  public isIos: boolean = false
   constructor(platform: Platform, public app: IonicApp ) {
     platform.ready().then(() => {
 
@@ -41,6 +42,9 @@ export class MyApp {
       // StatusBar.setStyle(StatusBar.LIGHT_CONTENT)
       // }
 
+      if (platform.is('ios')) {
+        this.isIos = true
+      }
     });
   }
 
@@ -48,6 +52,12 @@ export class MyApp {
     let nav = this.app.getComponent('nav')
     this.app.getComponent('main-menu').close()
     nav.setRoot(DashboardPage)
+  }
+
+  public goToTasks() {
+    let nav = this.app.getComponent('nav')
+    this.app.getComponent('main-menu').close()
+    nav.setRoot(TasksPage)
   }
 
   public goToSettings(){

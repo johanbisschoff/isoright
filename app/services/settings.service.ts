@@ -12,7 +12,9 @@ export class SettingsService {
 
       this.getUrl().then(storedUrl => {
         if (!storedUrl){
-          this.setUrl("/api/")
+            this.setUrl("/api/")
+            //this.setUrl("http://192.168.4.63/MobileAPI")
+            // this.setUrl("http://www.isoright.com/api")
         }
       })
     }

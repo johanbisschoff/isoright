@@ -1,0 +1,36 @@
+<ion-content padding class="login">
+
+  <div class="logo-outer">
+    <div class="logo">
+      <img src="img/login_logo.png">
+    </div>
+  </div>
+  <ion-card>
+    <ion-card-header>
+      SIGN IN
+    </ion-card-header>
+    <ion-card-content>
+
+      <ion-list>
+
+        <ion-item>
+          <ion-label floating>Username</ion-label>
+          <ion-input type="text" [(ngModel)]="username"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating>Password</ion-label>
+          <ion-input type="password" [(ngModel)]="password"></ion-input>
+        </ion-item>
+
+      </ion-list>
+
+      <div padding>
+        <button block (click)="login()">Sign In</button>
+      </div>
+
+    </ion-card-content>
+  </ion-card>
+
+
+</ion-content>

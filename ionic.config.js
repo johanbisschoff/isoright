@@ -4,10 +4,10 @@ module.exports = {
     "proxyUrl": "https://angular.io/"
   },{
     "path": "/api/",
-    "proxyUrl": "http://192.168.4.63/MobileAPI"
+    "proxyUrl": "http://www.isoright.com/api"
   },{
     "path": "/isoright/",
-    "proxyUrl": "http://192.168.4.63/IsoRight/" 
+    "proxyUrl": "http://192.168.4.63/IsoRight/"
   }],
 
   paths: {

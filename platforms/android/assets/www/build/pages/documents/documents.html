@@ -1,0 +1,21 @@
+<ion-navbar *navbar>
+
+  <ion-title>{{documentType.name}}</ion-title>
+
+</ion-navbar>
+
+<ion-content class="document-types">
+  <ion-item-divider light *ngIf="hasError" style="color: #c00;">
+    {{error}}
+  </ion-item-divider>
+  <ion-list>
+    <ion-item-divider light>
+      {{certification.name}} > {{certificationElement.name}} > {{documentType.name}}
+    </ion-item-divider>
+    <ion-item *ngFor="#item of documents" (click)="itemSelected(item)">
+      {{item.name}}
+      <p>v {{item.revisionNumber}}</p>
+      <p>{{item.dateApproved}}</p>
+    </ion-item>
+  </ion-list>
+</ion-content>
