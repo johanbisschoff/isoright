@@ -6,17 +6,22 @@
 
 </ion-navbar>
 
-<ion-content>
+<ion-content class="tasks">
   <ion-list>
-    <ion-item-divider light>
-      Task Type
-    </ion-item-divider>
     <ion-item *ngFor="#item of tasks" (click)="itemSelected(item)">
-      {{item.description}}
-
-      {{item.dueDate}}
-      {{item.complete}}
-      {{item.daysRemaining}}
+      <h2>
+        {{item.description}}
+      </h2>
+      <ion-note item-right>
+        <span class="days-remaining">{{item.daysRemaining}} Days</span>
+        <br/>
+        <span class="perc">
+          {{item.complete}} % &nbsp;
+        </span>
+      </ion-note>
+      <ion-note>
+        {{item.dueDate}}
+      </ion-note>
     </ion-item>
   </ion-list>
 </ion-content>

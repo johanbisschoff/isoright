@@ -10,41 +10,44 @@ import {AuthenticationService} from '../../services/authentication.service'
 import {HttpService} from '../../services/http.service'
 import {TasksService} from '../../services/tasks.service'
 
-import {TaskPage} from '../task/task'
+import {CompleteTaskPage} from './completeTask/completeTask'
 
 @Page({
   providers: [
     UtilsService, SettingsService,
     HttpService, AuthenticationService, TasksService
   ],
-  templateUrl: 'build/pages/tasks/tasks.html'
+  templateUrl: 'build/pages/task/task.html'
 })
 
+export class TaskPage {
 
-export class TasksPage implements OnInit {
-
-  public tasks : Task[]
+  public task : Task
 
   constructor(
     private _nav: NavController,
-    private _tasksService: TasksService
+    private _tasksService: TasksService,
+    private _params: NavParams
   ) {
-
+      this.task = this._params.get('task')
   }
 
-  getTaskList(){
-    this._tasksService.getTasks().then(tasks => {
-      this.tasks = tasks
+  private completeTask(){
+
+    this._nav.present(CompleteTaskPage, {
+      task: this.task
     })
   }
 
-  itemSelected(item: Task){
-    this._nav.push(TaskPage, {
-      task: item
-    })
+  update(){
+
+    if (this.task.complete >= 1000) {
+
+    }
   }
 
-  ngOnInit() {
-    this.getTaskList()
+  complete() {
+    this.task.complete = 100
+    this.completeTask()
   }
 }

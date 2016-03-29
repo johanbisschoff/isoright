@@ -3,4 +3,6 @@ export interface Task {
   daysRemaining: number
   dueDate: string
   complete: number
+  responsible: string
+  notes: string
 }

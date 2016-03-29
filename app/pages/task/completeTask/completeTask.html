@@ -1,0 +1,17 @@
+<ion-navbar *navbar>
+  <ion-title>Complete Task</ion-title>
+</ion-navbar>
+
+<ion-content class="complete-task">
+
+    <div *ngIf="explain" class="explain">
+
+    </div>
+
+
+    <ion-item>
+      <ion-label stacked>Completion Note</ion-label>
+      <ion-input type="text" placeholder="Description" block [(ngModel)]="task.description"></ion-input>
+    </ion-item>
+
+</ion-content>

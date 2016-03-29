@@ -23,14 +23,18 @@ export class TasksService {
         {
           dueDate: '2016-03-31',
           complete: 50,
+          responsible: 'John Smith',
           daysRemaining: 21,
-          description: 'this is a thing you need to do'
+          notes: 'Planning for capacity',
+          description: '3.3.1.1 Capacity Planning f3'
         },
         {
           dueDate: '2016-03-31',
           complete: 40,
+          responsible: 'John Smith',
           daysRemaining: 4,
-          description: 'this is another thing you need to do'
+          notes: '',
+          description: '3.3.2.1 Capacity Planning f4'
         }
       ]
 
