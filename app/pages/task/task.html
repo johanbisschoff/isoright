@@ -6,12 +6,12 @@
 
   <ion-item>
     <ion-label stacked>Description</ion-label>
-    <ion-input type="text" placeholder="Description" block [(ngModel)]="task.description"></ion-input>
+    <ion-input type="text" disabled="true" placeholder="Description" block [(ngModel)]="task.description"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label stacked>Responsible</ion-label>
-    <ion-input type="text" placeholder="Responsible" [(ngModel)]="task.responsible"></ion-input>
+    <ion-input type="text"  disabled="true" placeholder="Responsible" [(ngModel)]="task.responsible"></ion-input>
 
       <!-- <ion-item *ngFor="#item of task.responsible">
         <span>{{item}}</span>

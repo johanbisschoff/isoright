@@ -43,7 +43,12 @@ export class TaskPage {
 
     if (this.task.complete >= 100) {
       this.completeTask()
+    } else {
+
+      this._nav.pop()
     }
+
+
   }
 
   complete() {
