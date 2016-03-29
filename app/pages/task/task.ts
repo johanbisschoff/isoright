@@ -1,4 +1,4 @@
-import {App, Page, NavController, NavParams} from 'ionic-framework/ionic'
+import {App, Page, NavController, NavParams, Modal} from 'ionic-framework/ionic'
 import {MenuController} from 'ionic-framework/ionic'
 import {OnInit} from 'angular2/core'
 
@@ -22,7 +22,9 @@ import {CompleteTaskPage} from './completeTask/completeTask'
 
 export class TaskPage {
 
-  public task : Task
+  public task: Task
+
+  private _modalPage: Modal
 
   constructor(
     private _nav: NavController,
@@ -33,21 +35,19 @@ export class TaskPage {
   }
 
   private completeTask(){
-
-    this._nav.present(CompleteTaskPage, {
-      task: this.task
-    })
+    this._modalPage = Modal.create(CompleteTaskPage, {task: this.task})
+    this._nav.present(this._modalPage)
   }
 
   update(){
 
-    if (this.task.complete >= 1000) {
-
+    if (this.task.complete >= 100) {
+      this.completeTask()
     }
   }
 
   complete() {
     this.task.complete = 100
-    this.completeTask()
+    this.update()
   }
 }

@@ -17,28 +17,30 @@ export class TasksService {
 
   }
 
+  public tasks: Task[] = [
+    {
+      dueDate: '2016-04-31',
+      complete: 50,
+      responsible: [ 'John Smith', 'James May' ],
+      daysRemaining: 31,
+      notes: 'Planning for capacity',
+      description: '3.3.1.1 Capacity Planning f3',
+      completionNote: ''
+    },
+    {
+      dueDate: '2016-03-31',
+      complete: 40,
+      responsible: [ 'John Smith' ],
+      daysRemaining: 4,
+      notes: '',
+      description: '3.3.2.1 Capacity Planning f4',
+      completionNote: ''
+    }
+  ]
+
   public getTasks() : Promise<Task[]>{
     return new Promise<Task[]>((resolve,reject) => {
-      let tasks = [
-        {
-          dueDate: '2016-03-31',
-          complete: 50,
-          responsible: 'John Smith',
-          daysRemaining: 21,
-          notes: 'Planning for capacity',
-          description: '3.3.1.1 Capacity Planning f3'
-        },
-        {
-          dueDate: '2016-03-31',
-          complete: 40,
-          responsible: 'John Smith',
-          daysRemaining: 4,
-          notes: '',
-          description: '3.3.2.1 Capacity Planning f4'
-        }
-      ]
-
-      resolve(tasks)
+      resolve(this.tasks)
     })
   }
 }

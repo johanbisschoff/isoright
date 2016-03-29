@@ -1,5 +1,10 @@
 <ion-navbar *navbar>
   <ion-title>Complete Task</ion-title>
+  <ion-buttons start>
+   <button (click)="dismiss()">
+    Close
+   </button>
+ </ion-buttons>
 </ion-navbar>
 
 <ion-content class="complete-task">
@@ -8,10 +13,13 @@
 
     </div>
 
-
     <ion-item>
       <ion-label stacked>Completion Note</ion-label>
-      <ion-input type="text" placeholder="Description" block [(ngModel)]="task.description"></ion-input>
+      <ion-input type="text" placeholder="Completion note" block [(ngModel)]="task.completionNote"></ion-input>
     </ion-item>
+
+    <div padding class="button-holder">
+      <button (click)="complete()" secondary>Complete</button>
+    </div>
 
 </ion-content>

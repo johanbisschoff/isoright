@@ -1,4 +1,4 @@
-import {App, Page, NavController, NavParams} from 'ionic-framework/ionic'
+import {App, Page, NavController, NavParams, ViewController, Alert} from 'ionic-framework/ionic'
 import {MenuController} from 'ionic-framework/ionic'
 import {OnInit} from 'angular2/core'
 
@@ -20,27 +20,34 @@ import {TasksService} from '../../../services/tasks.service'
 
 export class CompleteTaskPage {
 
-  public task : Task
+  public task: Task
 
   constructor(
     private _nav: NavController,
     private _tasksService: TasksService,
-    private _params: NavParams
-  ) {
-      this.task = this._params.get('task')
+    private _params: NavParams,
+    private _viewCtrl: ViewController
+    ) {
+    this.task = this._params.get('task')
   }
 
-  private completeTask(){
-
-    //TODO: show note dialog
-
-  }
-
-  update(){
+  dismiss() {
+    this._viewCtrl.dismiss(this)
   }
 
   complete() {
-    this.task.complete = 100
-    this.completeTask()
+    if (this.task.completionNote == '') {
+      let alert = Alert.create({
+        title: 'Empty completion note',
+        subTitle: 'Your completion note cannot be empty',
+        buttons: ['Dismiss']
+      });
+      this._nav.present(alert);
+    } else {
+      //post completion
+      this.dismiss()
+    }
   }
+
+
 }
