@@ -1,52 +1,70 @@
 import {Injectable} from 'angular2/core'
 import {DocumentType} from '../models/document-type'
 import {Certification,CertificationElement} from '../models/certification'
-import {certificationElements} from '../data/certification-elements'
-import {documentTypes} from '../data/document-types'
+
+import {SettingsService} from './settings.service'
+import {UtilsService} from './utils.service'
+import {HttpService} from './http.service'
 
 import {Document} from '../models/document'
+import {Http} from "angular2/http"
 
 @Injectable()
 export class StandardsService {
 
-  private _certifications: Certification[] = [
-    {"id":2,"name":"ISO9001:2008"},
-    {"id":3,"name":"TS16949:2009"},
-    {"id":4,"name":"ISO 14001:2004 "},
-    {"id":6,"name":"OHSAS BS 18001: 2007 "}
-  ]
+  // private _documents: Document[] = [
+  //   {"id":1, "name": "First Document" , "url": "docs/js/latest/api/http/Http-class.html"}
+  // ]
 
-  private _documents: Document[] = [
-    {"id":1, "name": "First Document" , "url": "docs/js/latest/api/http/Http-class.html"}
-  ]
+  public constructor(
+    private _http: Http,
+    private _utilsService: UtilsService,
+    private _settingsService: SettingsService,
+    private _httpService: HttpService
+  ) {
 
-  public constructor() {
   }
 
-  public getDocuments(certification: Certification,
-    certificationElement: CertificationElement,
-    documentType: DocumentType): Promise<Document[]> {
-
-    return new Promise<Document[]>(resolve => {
-      resolve(this._documents)
+  public getDocuments(certificationElementId: number, documentTypeId: number):
+    Promise<Document[]> {
+    return new Promise<Document[]>((resolve,reject) => {
+      let url = `/api/document/list/${certificationElementId}/${documentTypeId}`
+      this._httpService.getJson(url).then(json => {
+        resolve(json.documents)
+      }, error => {
+        reject(error)
+      })
     })
   }
 
-  public getCertificationElements(): Promise<CertificationElement[]> {
-    return new Promise<CertificationElement[]>(resolve => {
-      resolve(certificationElements)
+  public getCertificationElements(id: number): Promise<CertificationElement[]> {
+    return new Promise<CertificationElement[]>((resolve,reject) => {
+      this._httpService.getJson(`/api/certification/elements/${id}`)
+      .then(json => {
+        resolve(json.certificationElements)
+      }, error => {
+        reject(error)
+      })
     })
   }
 
   public getCertifications(): Promise<Certification[]> {
-    return new Promise<Certification[]>(resolve => {
-      resolve(this._certifications)
+    return new Promise<Certification[]>((resolve,reject) => {
+      this._httpService.getJson('/api/certification/all').then(json => {
+        resolve(json.certifications)
+      }, error => {
+        reject(error)
+      })
     })
   }
 
   public getDocumentTypes(): Promise<DocumentType[]> {
-    return new Promise<DocumentType[]>(resolve => {
-      resolve(documentTypes)
+    return new Promise<DocumentType[]>((resolve,reject) => {
+      this._httpService.getJson('/api/document/types').then(json => {
+        resolve(json.documentTypes)
+      }, error => {
+        reject(error)
+      })
     })
   }
 

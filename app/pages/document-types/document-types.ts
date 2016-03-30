@@ -1,5 +1,4 @@
 import {Page, NavController, NavParams} from 'ionic-framework/ionic'
-import {StandardsService} from '../../services/standards.service'
 import {CertificationElement, Certification} from '../../models/certification'
 import {DocumentType} from '../../models/document-type'
 import {OnInit} from 'angular2/core'
@@ -7,8 +6,14 @@ import {DashboardPage} from '../dashboard/dashboard'
 
 import {DocumentsPage} from '../documents/documents'
 
+import {UtilsService} from '../../services/utils.service'
+import {SettingsService} from '../../services/settings.service'
+import {StandardsService} from '../../services/standards.service'
+import {AuthenticationService} from '../../services/authentication.service'
+import {HttpService} from '../../services/http.service'
+
 @Page({
-  providers: [StandardsService],
+  providers: [StandardsService,UtilsService,SettingsService,HttpService,AuthenticationService],
   templateUrl: 'build/pages/document-types/document-types.html'
 })
 
@@ -18,7 +23,9 @@ export class DocumentTypePage implements OnInit {
   public certification: Certification
   public certificationElement: CertificationElement
 
-  public poop: string = "test"
+  public hasError: boolean = false
+  public error: string
+
   constructor(
     private _nav: NavController,
     private _params: NavParams,
@@ -43,6 +50,9 @@ export class DocumentTypePage implements OnInit {
   getDocumentTypes() {
     this._standardsService.getDocumentTypes().then(documentTypes => {
       this.documentTypes = documentTypes
+    },error => {
+      this.hasError = true
+      this.error = error
     })
   }
 

@@ -40,14 +40,6 @@ export class DocumentViewerPage implements OnInit {
     this.certificationElement = this._params.get('certificationElement')
     this.documentType = this._params.get('documentType')
     this.document = this._params.get('document')
-
-    this._settingsService.getUrl().then(url => {
-      this._fullUrl = this._utils.pathJoin([
-         url,
-         this.document.url
-       ])
-    })
-
   }
 
   openHome() {
@@ -55,8 +47,10 @@ export class DocumentViewerPage implements OnInit {
   }
 
   ngOnInit() {
-    this._http.get(this._fullUrl)
+    this._http.get(this.document.url)
         .subscribe(text => {
+          // console.log(`loading ${this.document.contentType}`)
+          console.log(text);
           let htmlText = text.text()
           console.log(htmlText)
           this.documentHtml = htmlText

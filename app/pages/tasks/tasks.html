@@ -1,0 +1,27 @@
+<ion-navbar *navbar>
+  <button menuToggle="nav-menu">
+    <ion-icon name="menu"></ion-icon>
+  </button>
+  <ion-title>Tasks</ion-title>
+
+</ion-navbar>
+
+<ion-content class="tasks">
+  <ion-list>
+    <ion-item *ngFor="#item of tasks" (click)="itemSelected(item)">
+      <h2>
+        {{item.description}}
+      </h2>
+      <ion-note item-right>
+        <span class="days-remaining">{{item.daysRemaining}} Days</span>
+        <br/>
+        <span class="perc">
+          {{item.complete}} % &nbsp;
+        </span>
+      </ion-note>
+      <ion-note>
+        {{item.dueDate}}
+      </ion-note>
+    </ion-item>
+  </ion-list>
+</ion-content>

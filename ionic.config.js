@@ -1,7 +1,13 @@
 module.exports = {
   proxies: [{
-    "path": "/api/",
+    "path": "/documents/",
     "proxyUrl": "https://angular.io/"
+  },{
+    "path": "/api/",
+    "proxyUrl": "http://www.isoright.com/api"
+  },{
+    "path": "/isoright/",
+    "proxyUrl": "http://192.168.4.63/IsoRight/"
   }],
 
   paths: {

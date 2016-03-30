@@ -1,0 +1,36 @@
+<ion-navbar *navbar>
+  <ion-title>Task</ion-title>
+</ion-navbar>
+
+<ion-content class="task">
+
+  <ion-item>
+    <ion-label stacked>Description</ion-label>
+    <ion-input type="text" disabled="true" placeholder="Description" block [(ngModel)]="task.description"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label stacked>Responsible</ion-label>
+    <ion-input type="text"  disabled="true" placeholder="Responsible" [(ngModel)]="task.responsible"></ion-input>
+
+      <!-- <ion-item *ngFor="#item of task.responsible">
+        <span>{{item}}</span>
+      </ion-item> -->
+  </ion-item>
+
+  <ion-item>
+    <ion-label stacked>Notes</ion-label>
+    <ion-input type="text" placeholder="Notes" [(ngModel)]="task.notes"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label> Task Completion %:</ion-label>
+    <ion-input type="number" min=0 max=100 placeholder="0" [(ngModel)]="task.complete"></ion-input>
+  </ion-item>
+
+  <div padding class="button-holder">
+    <button (click)="update()">Update</button>
+    <button (click)="complete()" secondary>Complete</button>
+  </div>
+
+</ion-content>
