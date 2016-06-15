@@ -1,23 +1,19 @@
 # IsoRight
 App for IsoRight
 
-
 #### Development Setup
+
+2.0.0-beta.17
+
 run
 ```sh
-npm install -g ionic@beta cordova
+npm install -g cordova
+npm install -g ionic@2.0.0-beta.17
 npm install
 ```
 
-##### To run the generator
-
-Generator Setup:
-```sh
-cd generator-isoright
-npm install
-npm link
-```
-Run 'yo isoright' to print usage
+**Note for Windows:**
+Run in Administrator Command Prompt
 
 
 Unit testing
